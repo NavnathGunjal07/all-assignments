@@ -34,7 +34,7 @@ class Calculator {
   };
   divide = (value) => {
     if (value === 0) {
-      throw new Error("divede by 0");
+      throw new Error("divide by 0");
     }
     this.result = this.result / value;
   };
