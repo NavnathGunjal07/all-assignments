@@ -6,17 +6,38 @@
  */
 
 function waitOneSecond() {
-
+  return new Promise(function (resolve, reject) {
+    setTimeout(() => {
+      resolve();
+    }, 1000);
+  });
 }
 
-function waitTwoSecond() {
-
+function waitTwoSeconds() {
+  return new Promise(function (resolve, reject) {
+    setTimeout(() => {
+      resolve();
+    }, 2000);
+  });
 }
 
-function waitThreeSecond() {
-
+function waitThreeSeconds() {
+  return new Promise(function (resolve, reject) {
+    setTimeout(() => {
+      resolve();
+    }, 3000);
+  });
 }
 
-function calculateTime() {
-
+async function calculateTime() {
+  const startTime = Date.now();
+  await waitOneSecond();
+  await waitTwoSeconds();
+  await waitThreeSeconds();
+  const endTime = Date.now();
+  console.log("sequential promise resolved:", endTime - startTime, "milliseconds");
 }
+
+calculateTime()
+
+// here it's taking 6 seconds to complete the calls
