@@ -45,6 +45,14 @@ class Calculator {
   getResult() {
     return this.result;
   }
+  calculate(expression) {
+    expression = expression.replace(/\s/g, "");
+    if (expression.includes("/ 0") || expression.includes("/0")) {
+      throw new Error("Division by zero");
+    }
+
+    this.result = Number(eval(expression));
+  }
 }
 
 module.exports = Calculator;
