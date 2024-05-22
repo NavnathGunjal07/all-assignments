@@ -21,8 +21,7 @@ function isAnagram(str1, str2) {
     if (map2.has(c)) map2.set(c.toLowerCase(), map2.get(c) + 1);
     else map2.set(c.toLowerCase(), 1);
   }
-  console.log(map1,map2)
-  if(map1.size!==map2.size) return false;
+  if (map1.size !== map2.size) return false;
 
   for (const key of Object.keys(map2)) {
     if (!map1.has(key) || map2.get(key) !== map1.get(key)) return false;
